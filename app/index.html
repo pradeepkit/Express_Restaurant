@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="utf-8"/>
+	 <!-- For Responsive Website -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<base href="/app"></head>
+
+	 <!-- Website Title -->
+	<title>Home</title>
+
+	 <!-- Website Icon -->
+	<link rel="shortcut icon" href="logo.png" type="image/png">
+
+	 <!-- Website Meta Description -->
+	<meta name="description" content="Static Restaurant - Mini Project">
+
+	 <!-- Website Meta Keywords -->
+	<meta name="keywords" content="Resturant, Mini Project, Foods, Party">
+
+	<!-- Bootstrap stylesheet -->
+	<link href="./assets/css/bootstrap/bootstrap.css" rel="stylesheet">
+	<!-- icofont -->
+	<link href="./assets/css/icofont/icofont.css" rel="stylesheet" type="text/css" />
+	<!-- crousel css -->
+	<link href="./assets/js/owl-carousel/owl.carousel.css" rel="stylesheet" type="text/css" />
+	<!--bootstrap select-->
+	<link href="./assets/css/bootstrap-select.css" rel="stylesheet" type="text/css" />
+	<!-- stylesheet -->
+	<link href="./assets/css/style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Website header start here-->
+<header>
+	<!--top start here -->
+	<div class="top">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-xs-12">
+					<ul class="list-inline pull-left icon">
+						<li><a href="/contact-us"><i class="icofont icofont-ui-message"></i>Email : info@restaurant.com</a></li>
+						<li><a href="/contact-us"><i class="icofont icofont-phone"></i>Phone : 123 456 7890</a></li>
+						<li ng-controller="mainCtrl"><a href="/shopping-cart"><i class="icofont icofont-cart-alt"></i>My Cart<span class="badge">{{length}}</span></a></li>
+					</ul>
+					<ul class="list-inline pull-right  icon">
+						<li>
+							<ul class="list-inline social">
+								<li><a href="https://www.facebook.com/" target="_blank"><i class="icofont icofont-social-facebook"></i></a></li>
+								<li><a href="https://twitter.com/" target="_blank"><i class="icofont icofont-social-twitter"></i></a></li>
+								<li><a href="https://plus.google.com/" target="_blank"><i class="icofont icofont-social-google-plus"></i></a></li>
+								<li><a href="https://www.instagram.com/" target="_blank"><i class="icofont icofont-social-instagram"></i></a></li>
+								<li><a href="https://in.pinterest.com/" target="_blank"><i class="icofont icofont-social-pinterest"></i></a></li>
+								<li><a href="https://www.youtube.com/" target="_blank"><i class="icofont icofont-social-youtube-play"></i></a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--top end here -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 col-sm-3 col-xs-12">
+				<div id="logo">
+					<a href="/"><img class="img-responsive" src="assets/images/logo.png" alt="logo" title="logo" /></a>
+				</div>
+			</div>
+				
+			<div class="col-md-9 col-sm-9 col-xs-12">
+				<!-- menu start here -->
+				<div id="menu">	
+					<nav class="navbar">
+						<div class="navbar-header">
+							<span class="menutext visible-xs">Menu</span>
+							<button data-target=".navbar-ex1-collapse" data-toggle="collapse" class="btn btn-navbar navbar-toggle" type="button"><i class="icofont icofont-navigation-menu"></i></button>
+						</div>
+						<div class="collapse navbar-collapse navbar-ex1-collapse padd0">
+							<ul class="nav navbar-nav text-right">
+								<li><a href="/home">home</a></li>
+								<li><a href="/about-us">about us</a></li>
+								<li><a href="/our-menu">Our Menu</a></li>
+								<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">MORE <i class="icofont icofont-caret-down"></i></a>
+									<div class="dropdown-menu repeating">
+										<div class="dropdown-inner">
+											<ul class="list-unstyled">
+												<li><a href="/our-blog">Blogs</a></li>
+												<li><a href="/testimonials">Testimonials</a></li>
+											</ul>
+										</div>
+									</div>
+								</li>
+								<li><a href="/shopping-cart">my cart</a></li>
+								<li><a href="/our-gallery">gallery</a></li>
+								<li><a href="/contact-us">contact us</a></li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+				<!-- menu end here -->
+			</div>
+		</div>
+	</div>
+</header>
+<!-- header end here -->
+
+<!--root ng-view start here(All route templates will be injected in this div) -->
+<div ng-view>
+<!--root ng-view end here -->
+
+</div>
+<!-- newsletter start here -->
+<div id="newsletter" ng-controller="mainCtrl">
+	<div class="container">
+		<div class="row">
+			<div id="subscribe">
+				<form class="form-horizontal" ng-submit="subscribeNewsletter(newsData)" name="subscribe">
+					<div class="col-sm-7"> 
+						<div class="input-group">
+							<span class="news">newsletter</span>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam iaculis lorem augue, at quam finibus eget.</p>
+						</div>
+					</div>
+					<div class="col-sm-5 form-group">
+						<div class="input-group">
+							<input  ng-model="newsData.email" name="subscribe_email" id="subscribe_email" placeholder="Email" type="email" required>
+							<button class="btn btn-news" type="submit" value="submit">Send</button>
+						</div>
+					</div>
+				</form>
+			</div> 
+		</div>
+	</div>
+</div>
+<!-- newsletter end here -->
+<!-- footer start here -->
+<footer>
+	<div class="container">
+		<div class="row inner">
+			<div class="col-sm-3">
+				<h5>my order</h5>
+				<ul class="list-unstyled">
+					<li><a href="#">Order History</a></li>
+					<li><a href="#">Wishlist</a></li>
+					<li><a href="#">Newsletter</a></li>
+					<li><a href="/reservation">My Reservation</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-3">
+				<h5>Information</h5>
+				<ul class="list-unstyled">
+					<li><a href="/about-us">About us</a></li>
+					<li><a href="#">Delivery Information</a></li>
+					<li><a href="/contact-us">Contact us</a></li>
+					<li><a href="#">Terms & Conditions</a></li>
+					<li><a href="#">Sitemap</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-3">
+				<h5>Working Time</h5>
+				<ul class="list-unstyled">
+					<li>Monday - Friday : 9 am to 12 am.</li>
+					<li>Saturday - Sunday : 24 Hour Open</li>
+					<li>Breakfast : 7 am to 12 pm</li>
+					<li>Lunch : 12 pm to 7 pm</li>
+					<li>Dinner : 7 am to 12 am</li>
+				</ul>
+			</div>
+			<div class="col-sm-3">
+				<h5>Working Time</h5>
+				<ul class="list-unstyled contact">
+					<li><a href="#"><i class="icofont icofont-social-google-map"></i> 123 St 3, Restaurant Food & Drinks, Near Bala Ji Chownk, Ludhiana, INDIA</a></li>
+					<li><a href="#"><i class="icofont icofont-phone"></i>1800 123 0000, +91 123457890</a></li>
+					<li><a href="#"><i class="icofont icofont-ui-message"></i>Info@restaurant.com</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row powered">
+			<div class="col-sm-12">
+				<hr>
+			</div>
+			<div class="col-sm-3">
+				<img src="assets/images/logo.png" class="img-responsive" title="logo" alt="logo">
+			</div>
+			<div class="col-sm-6 text-center">
+				<p>Copyright © <span>Restaurant Food & Drinks</span> 2017. All Rights Reserved.</p>
+			</div>
+			<div class="col-sm-3 text-right">
+				<ul class="list-inline social">
+					<li><a href="https://www.facebook.com/" target="_blank"><i class="icofont icofont-social-facebook"></i></a></li>
+					<li><a href="https://twitter.com/" target="_blank"><i class="icofont icofont-social-twitter"></i></a></li>
+					<li><a href="https://plus.google.com/" target="_blank"><i class="icofont icofont-social-google-plus"></i></a></li>
+					<li><a href="https://in.pinterest.com/" target="_blank"><i class="icofont icofont-social-pinterest"></i></a></li>
+					<li><a href="https://www.instagram.com/" target="_blank"><i class="icofont icofont-social-instagram"></i></a></li>
+					<li><a href="https://www.youtube.com/" target="_blank"><i class="icofont icofont-social-youtube-play"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- footer end here -->
+
+<!-- jquery -->
+<script src="assets/js/jquery.2.1.1.min.js" type="text/javascript"></script>
+<!-- bootstrap js -->
+<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+<!--bootstrap select-->
+<script src="assets/js/bootstrap-select.js" type="text/javascript"></script>
+<!--internal js-->
+<script src="assets/js/internal.js" type="text/javascript"></script>
+<!-- owlcarousel js -->
+<script src="assets/js/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
+<!--Gallery js code-->
+<script src="assets/js/photo-gallery.js" type="text/javascript"></script>
+<!-- angular js -->
+<script src="assets/js/angular.js" type="text/javascript"></script>
+<!-- angular-route js -->
+<script src="assets/js/angular-route.js" type="text/javascript"></script>
+<!-- angular-base64-upload js -->
+<script src="assets/js/angular-base64-upload.min.js" type="text/javascript"></script>
+<!-- app js -->
+<script src="app.js" type="text/javascript"></script>
+<script src="assets/controllers/about_usCtrl.js" type="text/javascript"></script>
+<script src="assets/controllers/contact_usCtrl.js" type="text/javascript"></script>
+<script src="assets/controllers/blog_detailCtrl.js" type="text/javascript"></script>
+<script src="assets/controllers/our_blogCtrl.js" type="text/javascript"></script>
+<script src="assets/controllers/our_galleryCtrl.js" type="text/javascript"></script>
+<script src="assets/controllers/our_menuCtrl.js" type="text/javascript"></script>
+<script src="assets/controllers/reservationCtrl.js" type="text/javascript"></script>
+<script src="assets/controllers/shopping_cartCtrl.js" type="text/javascript"></script>
+<script src="assets/controllers/testimonialCtrl.js" type="text/javascript"></script>
+<script src="assets/controllers/confirmationCtrl.js" type="text/javascript"></script>
+<script src="assets/controllers/homeCtrl.js" type="text/javascript"></script>
+</body>
+</html>

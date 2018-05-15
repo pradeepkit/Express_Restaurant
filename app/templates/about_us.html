@@ -1,0 +1,86 @@
+<!-- bread-crumb start here -->
+<div class="bread-crumb">
+	<img src="../assets/images/banner_top.jpg" class="img-responsive" alt="banner-top" title="banner-top">
+	<div class="container">
+		<div class="matter">
+			<h2>about us</h2>
+			<ul class="list-inline">
+				<li><a href="/">HOME</a></li>
+				<li><a href="/about-us">about us</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- bread-crumb end here -->
+
+
+<!-- about start here -->
+<div class="abouts">
+	<div class="container">
+		<div class="row ">
+			<div class="col-sm-7 col-xs-12 commontop text-left">
+				<h4>about our restaurant food & drinkes</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla, in suscipit erat sodales id. Nullam ultricies eu turpis at accumsan. </p>
+				<hr>
+			</div>
+			<div class="col-sm-7 col-xs-12">
+				<p class="des">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla, in suscipit erat sodales id. Nullam ultricies eu turpis at accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla, in suscipit erat sodales id. Nullam ultricies eu turpis at accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla, in suscipit erat sodales id. Nullam ultricies eu turpis at accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla, in suscipit erat sodales id. Nullam ultricies eu turpis at accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla, in suscipit erat sodales id. Nullam ultricies eu turpis at accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla, in suscipit erat sodales id.  Nullam efficitur placerat nulla, in suscipit erat sodales id. Nullam ultricies eu turpis at accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla, in suscipit erat sodales id. Nullam ultricies eu turpis at accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla, in suscipit erat sodales id. </p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- about end here -->
+
+<!-- service start here -->
+<div class="service">
+	<div class="container">
+		<div class="row ">
+			<div class="col-sm-12 col-xs-12 commontop text-center">
+				<h4>our services</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla, in suscipit erat sodales id. Nullam ultricies eu turpis at accumsan. Mauris a sodales mi, eget lobortis nulla. </p>
+				<hr>
+			</div>
+			<!-- ng-repeat on services start here -->
+			<div class="col-sm-4 col-xs-12" ng-repeat="service in services track by $index"> 
+				<div class="box text-center">
+					<img ng-src="{{service.image}}" class="img-responsive" alt="icon" title="icon" />
+					<h4>{{service.name}}</h4>
+					<p>{{service.description}}</p>
+				</div>
+			</div>
+			<!-- ng-repeat on services end here -->
+		</div>
+	</div>
+</div>
+<!-- service end here -->
+
+<!-- team start here -->
+<div class="team">
+	<div class="container">
+		<div class="row ">
+			<div class="col-sm-12 col-xs-12 commontop text-center">
+				<h4>our team</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla, in suscipit erat sodales id. Nullam ultricies eu turpis at accumsan. Mauris a sodales mi, eget lobortis nulla. </p>
+				<hr>
+			</div>
+			<!-- ng-repeat on members start here -->
+			<div class="col-sm-3 col-xs-12" ng-repeat="member in members track by $index">
+				<div class="box">
+					<img ng-src="{{member.image}}" class="img-responsive" alt="icon" title="icon" />
+					<div class="caption text-center">
+						<h4>{{member.name}}</h4>
+						<ul class="list-inline social">
+							<li><a href="{{member.facebook_url}}" target="_blank"><i class="icofont icofont-social-facebook"></i></a></li>
+							<li><a href="{{member.twitter_url}}" target="_blank"><i class="icofont icofont-social-twitter"></i></a></li>
+							<li><a href="{{member.plus_google_url}}" target="_blank"><i class="icofont icofont-social-google-plus"></i></a></li>
+							<li><a href="{{member.insta_url}}" target="_blank"><i class="icofont icofont-social-instagram"></i></a></li>
+						</ul>
+						<p>orem ipsum dolor sit amet, consectetur adipiscing elit. Nam pharetra risus mauris, eget tristique augue. </p>
+					</div>
+				</div>
+			</div>
+			<!-- ng-repeat on members end here -->
+		</div>
+	</div>
+</div>
+<!-- team end here -->

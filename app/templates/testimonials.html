@@ -1,0 +1,44 @@
+<!-- bread-crumb start here -->
+<div class="bread-crumb">
+	<img src="../assets/images/banner_top.jpg" class="img-responsive" alt="banner-top" title="banner-top">
+	<div class="container">
+		<div class="matter">
+			<h2>Testimonials</h2>
+			<ul class="list-inline">
+				<li><a href="index.html">HOME</a></li>
+				<li><a href="testimonial.html">Testimonials</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- bread-crumb end here -->
+
+<!-- testinner start here -->
+<div class="testinner">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-xs-12 commontop text-center">
+				<h4>what people are saying</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla, in suscipit erat sodales id. Nullam ultricies eu turpis at accumsan. Mauris a sodales mi, eget lobortis nulla.</p>
+				<hr>
+			</div>
+			<div class="col-sm-12 col-xs-12" style="margin-top:50px;">
+				<div class="box" ng-repeat="testimonial in testimonials track by $index">
+					<img ng-src="{{testimonial.image}}" class="img-responsive" alt="img" title="img" />
+					<div class="caption">
+						<p><i class="icofont icofont-quote-left"></i> {{testimonial.content}} <i class="icofont icofont-quote-right"></i></p>
+						<h4>- {{testimonial.name}}</h4>
+						<div class="rating">
+							<i class="icofont icofont-star" ng-style="(testimonial.rating > 0) ? {'color' : '#FFA41F'} : {'color' : '#b2b2b2'}"></i>
+							<i class="icofont icofont-star" ng-style="(testimonial.rating > 1) ? {'color' : '#FFA41F'} : {'color' : '#b2b2b2'}"></i>
+							<i class="icofont icofont-star" ng-style="(testimonial.rating > 2) ? {'color' : '#FFA41F'} : {'color' : '#b2b2b2'}"></i>
+							<i class="icofont icofont-star" ng-style="(testimonial.rating > 3) ? {'color' : '#FFA41F'} : {'color' : '#b2b2b2'}"></i>
+							<i class="icofont icofont-star" ng-style="(testimonial.rating > 4) ? {'color' : '#FFA41F'} : {'color' : '#b2b2b2'}"></i>
+						</div>
+					</div>
+				</div>		
+			</div>
+		</div>
+	</div>
+</div>
+<!-- testinner end here -->

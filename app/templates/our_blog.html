@@ -1,0 +1,36 @@
+<!-- bread-crumb start here -->
+<div class="bread-crumb">
+	<img src="../assets/images/banner_top.jpg" class="img-responsive" alt="banner-top" title="banner-top">
+	<div class="container">
+		<div class="matter">
+			<h2>our Blog</h2>
+			<ul class="list-inline">
+				<li><a href="/">HOME</a></li>
+				<li><a href="/our-blog">our blog</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- bread-crumb end here -->
+
+<!-- blog start here -->
+<div class="blog">
+	<div class="container">
+		<div class="row">
+			<!-- ng-repeat on blogs start here -->
+			<div class="col-sm-4" ng-repeat="blog in blogs track by $index">
+				<div class="box">
+					<a href="/blog-details/{{$index + 1}}"><img ng-src="{{blog.image}}" class="img-responsive" alt="image" title="image" /></a>
+					<div class="caption">
+						<h4>{{blog.title}}</h4>
+						<p class="text">{{blog.date | date}} / By {{blog.uploaded_by}}</p>
+						<p class="des">{{blog.description | limitTo:100}}...</p>
+						<button type="button" class="btn-primary" ng-click="navigator($index + 1)">read more <i class="icofont icofont-curved-double-right"></i></button>
+					</div>
+				</div>	
+			</div>
+			<!-- ng-repeat on blogs end here -->
+		</div>
+	</div>
+</div>
+<!-- blog end here -->
