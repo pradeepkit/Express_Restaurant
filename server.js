@@ -19,7 +19,7 @@
     	app = express();
       const port = process.env.PORT || 5000;
 
-    mongoose.connect('mongodb://samplefsd:ankit939@ds213118.mlab.com:13118/restaurant')
+    mongoose.connect('mongodb://pradeep:divpradeep@ds225010.mlab.com:25010/express_restaurant') 
 	
 	  app.use(bodyParser.json());
 	  app.use(bodyParser.urlencoded({extended : false}));
