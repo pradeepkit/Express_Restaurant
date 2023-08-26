@@ -20,7 +20,7 @@
       const port = process.env.PORT || 5000;
 
     // mongoose.connect('mongodb://samplefsd:ankit939@ds213118.mlab.com:13118/restaurant') 
-    mongoose.connect('mongodb+srv://pradeepkit1:Divy@1308@cluster0.gsbymnq.mongodb.net/?retryWrites=true&w=majority');
+    mongoose.connect('mongodb://atlas-sql-64e8c893c1ac41120fc68f95-vg7np.a.query.mongodb.net/hospital-portal?ssl=true&authSource=admin');
 	
 	  app.use(bodyParser.json());
 	  app.use(bodyParser.urlencoded({extended : false}));
