@@ -7,16 +7,17 @@ angular.module('myApp').controller('our_menuCtrl', [
 	'$rootScope', function($anchorScroll,$scope,RestaurantService,$http,prefix_url,$rootScope){
 	$anchorScroll();
 	$scope.filter = 'all';
-	if(!RestaurantService.recipes.length){
-		$http.get(prefix_url + 'menu').then(function(data){
-			$scope.recipes = data.data;
-			RestaurantService.recipes = data.data;
-		}, function(err){
-			console.log(err);
-		})
-	}else{
+	console.log('RestaurantService.recipes', RestaurantService.recipes);
+	// if(!RestaurantService.recipes.length){
+	// 	$http.get(prefix_url + 'menu').then(function(data){
+	// 		$scope.recipes = data.data;
+	// 		RestaurantService.recipes = data.data;
+	// 	}, function(err){
+	// 		console.log(err);
+	// 	})
+	// }else{
 		$scope.recipes = RestaurantService.recipes
-	}
+	// }
 
 	$scope.addToCart = function(data, index){
 		if(!data.checked){

@@ -93,9 +93,984 @@ var myApp = angular.module('myApp', ['ngRoute','naif.base64'])
 }])
 
 .factory('RestaurantService', function() {
+    let recipeItems = [
+        {
+			name : 'Fryied Rice',
+			image : 'assets/images/our-menu/01.jpg',
+			rating : '4',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'all'
+		},
+        {
+			name : 'Dal Chawal',
+			image : 'assets/images/our-menu/02.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'breakfast'
+		},
+        {
+			name : 'Chiken Rice',
+			image : 'assets/images/our-menu/03.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'lunch'
+		},
+        {
+			name : 'Motton Rice',
+			image : 'assets/images/our-menu/04.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'dinner'
+		},
+        {
+			name : 'sof drink',
+			image : 'assets/images/our-menu/05.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'drinks'
+		},
+        {
+			name : 'Chhole Bhatore',
+			image : 'assets/images/our-menu/06.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'palak pameer',
+			image : 'assets/images/our-menu/07.jpg',
+			rating : '5',
+			number : 6,
+			price : 150,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'all'
+		},
+        {
+			name : 'Matar paneer',
+			image : 'assets/images/our-menu/08.jpg',
+			rating : '5',
+			number : 6,
+			price : 150,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Saahi paneer',
+			image : 'assets/images/our-menu/09.jpg',
+			rating : '5',
+			number : 6,
+			price : 150,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bread pizza',
+			image : 'assets/images/our-menu/01.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'all'
+		},
+        {
+			name : 'Chese Burgure',
+			image : 'assets/images/our-menu/02.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'breakfast'
+		},
+        {
+			name : 'Veg Burgure',
+			image : 'assets/images/our-menu/03.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'lunch'
+		},
+        {
+			name : 'Daal',
+			image : 'assets/images/our-menu/04.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'dinner'
+		},
+        {
+			name : 'Rice',
+			image : 'assets/images/our-menu/05.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'drinks'
+		},
+        {
+			name : 'Biriyani',
+			image : 'assets/images/our-menu/06.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Momose',
+			image : 'assets/images/our-menu/07.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'all'
+		},
+        {
+			name : 'Aalu Paratha',
+			image : 'assets/images/our-menu/08.jpg',
+			rating : '5',
+			number : 6,
+			price : 20,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Sada Paratha',
+			image : 'assets/images/our-menu/09.jpg',
+			rating : '5',
+			number : 6,
+			price : 15,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/01.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'all'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/02.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'breakfast'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/03.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'lunch'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/04.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'dinner'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/05.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'drinks'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/06.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/07.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'all'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/08.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/09.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/01.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'all'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/02.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'breakfast'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/03.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'lunch'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/04.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'dinner'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/05.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'drinks'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/06.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/07.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'all'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/08.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/09.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/01.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'all'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/02.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'breakfast'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/03.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'lunch'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/04.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'dinner'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/05.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'drinks'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/06.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/07.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'all'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/08.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/09.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/01.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'all'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/02.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'breakfast'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/03.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'lunch'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/04.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'dinner'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/05.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'drinks'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/06.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/07.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'all'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/08.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/09.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/01.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'all'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/02.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'breakfast'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/03.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'lunch'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/04.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'dinner'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/05.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'drinks'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/06.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/07.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'all'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/08.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/09.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/01.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'all'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/02.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'breakfast'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/03.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'lunch'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/04.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'dinner'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/05.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'drinks'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/06.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/07.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'all'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/08.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/09.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/01.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'all'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/02.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'breakfast'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/03.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'lunch'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/04.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'dinner'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/05.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'drinks'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/06.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/07.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'all'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/08.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/09.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/01.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'all'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/02.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'breakfast'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/03.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'lunch'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/04.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'dinner'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/05.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'drinks'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/06.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/07.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'all'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/08.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/09.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/01.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'all'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/02.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'breakfast'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/03.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'lunch'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/04.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'dinner'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/05.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'drinks'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/06.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/07.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'all'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/08.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/09.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/01.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'all'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/02.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'breakfast'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/03.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'lunch'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/04.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'dinner'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/05.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'drinks'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/06.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/07.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'all'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/08.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		},
+        {
+			name : 'Bhojan',
+			image : 'assets/images/our-menu/09.jpg',
+			rating : '5',
+			number : 6,
+			price : 50,
+			description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur placerat nulla,',
+			type : 'others'
+		}
+        
+    ] 
     return {
         cart : [],
-        recipes : []
+        recipes : recipeItems
     }
 })
 
